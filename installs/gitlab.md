@@ -152,9 +152,41 @@ gem install bundler --no-doc
 	/etc/init.d/nginx 
 	```
 	
-
-
-
+	
+##### 安装问题
+1. `git clone/push`权限问题
+	```
+	git clone git@gitlab.exmaple.com:zeayes/test.git
+	Cloning into 'test'...
+	Access denied.
+	fatal: Could not read from remote repository.
+	Please make sure you have the correct access rights
+	and the repository exists.
+	```
+	
+	查看日志`gitlab`的`sidekip.log`：
+	```
+	home/git/gitlab-shell/lib/gitlab_keys.rb:87:in `initialize':Permission denied - /home/git/.ssh/authorized_keys.lock (Errno::EACCES)
+	from /home/git/gitlab-shell/lib/gitlab_keys.rb:87:in `open'
+	from /home/git/gitlab-shell/lib/gitlab_keys.rb:87:in `lock'
+	from /home/git/gitlab-shell/lib/gitlab_keys.rb:65:in `rm_key'
+	from /home/git/gitlab-shell/lib/gitlab_keys.rb:21:in `exec'
+	from /home/git/gitlab-shell//bin/gitlab-keys:21:in `<main>'
+2014-08-25T03:03:54Z 2746 TID-ovuxd18ic GitlabShellWorker JID-d712a55020c632580a705e43 INFO: done: 0.492 sec
+	```
+	
+	查看文件权限：
+	```
+	ll ~/.ssh/authorized_keys.lock
+	-rw------- 1 git git 527 8月  25 10:49 /home/git/.ssh/authorized_keys
+	```
+	
+	修改文件权限：
+	```
+	chmod 760 ~/.ssh/authorized_keys.lock
+	```
+	
+	再次`git clone/push` OK。
 
 
 

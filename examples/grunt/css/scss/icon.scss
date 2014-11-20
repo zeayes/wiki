@@ -1,0 +1,9 @@
+$icons: sprite-map('icons/*.png', $spacing: 5px, $layout: virtical);
+
+#deleteIcon {
+    background: sprite($icons, icon_delete);
+}
+
+#searchIcon {
+    background: sprite($icons, icon_search);
+}

@@ -1,0 +1,17 @@
+//global params
+$font-default-color: rgb(28, 78, 125);
+$font-default-size: 12px !default;
+$device-witdh: 640px;
+
+//global method
+@function px-to-rem($px) {
+    @return $px / 2 / $font-default-size * 1rem;
+}
+
+@function shrink($px) {
+    @return $px / 2;
+}
+
+@function px-to-percentage($px) {
+    @return percentage($px / $device-witdh);
+}

@@ -1,0 +1,75 @@
+@import 'common';
+
+$font-default-size: 12px !default;
+//mobile reset
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    &:hover {
+        outline: none;
+    }
+}
+
+html {
+    font-family: verdana, 黑体;
+    font-size: $font-default-size;
+}
+
+body {
+    background-color: rgb(229, 232, 236);
+}
+
+a {
+    &:link {
+        text-decoration: none;
+    }
+
+    &:visited {
+        text-decoration: none;	
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:active {
+        text-decoration: none;
+    }
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+%btn {
+    border: 0;
+    border-radius: 12px;
+    color: #fff;
+    font-size: px-to-rem(30px);
+    text-align: center;
+}
+
+.greenBtn {
+    @extend %btn;
+    background-color: #37af72;
+}
+
+.grayBtn {
+    @extend %btn;
+    background-color: #6b859e;
+}
+
+.webkitBox {
+    backface-visibility: hidden;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    display: -webkit-box;
+    height: 100%;
+}
+
+.loadEnd {
+    color: #647f99;
+    height: 20px;
+    margin: 10px 0;
+    text-align: center;
+}

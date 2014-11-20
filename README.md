@@ -1,4 +1,4 @@
 wiki
 ====
 
-personal knowledge collection.
+personal knowledge collections.

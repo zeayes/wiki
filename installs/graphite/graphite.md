@@ -1,3 +1,4 @@
+#### 安转graphite
 ```sh
  pip install configobj
  
@@ -13,9 +14,15 @@
  cd /opt/graphite/conf
  cp carbon.conf.example carbon.conf
  cp storage-schemas.conf.example storage-schemas.conf
+ vim /opt/graphite/lib/carbon/util.py
+ # from twisted.scripts._twistd_unix import daemonize
+ import daemonize
+
  bin/carbon-cache.py start
 ```
 
+
+#### 安装pixman
 ```sh
 wget http://cairographics.org/releases/pixman-0.22.0.tar.gz
 tar xzf pixman-0.22.0.tar.gz && cd pixman-0.22.0
@@ -35,7 +42,7 @@ tar xjf py2cairo-1.10.0.tar.bz2 && cd py2cairo-1.10.0
 ./waf install
 ```
 
-
+#### 安装statsd
 ```
 wget http://nodejs.org/dist/v0.10.33/node-v0.10.33.tar.gz
 tar xzf node-v0.10.33.tar.gz && cd node-v0.10.33
@@ -49,10 +56,4 @@ cp exampleConfig.js config.js
 npm install nodeunit temp underscore
 ./run_tests.sh
 node stats.js config.js
-```
-
-
-```sh
-wget http://grafanarel.s3.amazonaws.com/grafana-1.8.1.tar.gz
-
 ```

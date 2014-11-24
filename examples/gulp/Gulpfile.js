@@ -6,6 +6,7 @@ var compass = require('gulp-compass');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer-core');
 var minifyCSS = require('gulp-minify-css');
+var livereload = require('gulp-livereload');
 
 gulp.task('compass', function() {
     gulp.src('css/scss/*.scss')
@@ -34,8 +35,12 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
+    var server = livereload();
+
     gulp.watch('js/*.js', ['scripts']);
-    gulp.watch('css/scss/*.scss', ['compass']);
+    gulp.watch('css/scss/*.scss', ['compass'], function(file) {
+        server.changed(file.path);
+    });
 });
 
 gulp.task('default', ['clean'], function() {

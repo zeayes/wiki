@@ -14,7 +14,7 @@ rsync --daemon --config=/etc/rsyncd/conf/example.conf
 ```sh
 # copy服务端example.secrets里面的uuid到本地example.secrets
 sudo chmod 600 example.secrets
-rsync --port=31920 --password-file=example.secrets --exclude-from=exclude_file.txt -avzP test.txt project@192.168.0.105::project
+rsync --port=31920 --password-file=example.secrets --exclude-from=exclude_file.txt -avzP test.txt example@192.168.0.105::example
 # rsync具体命令参数
 man rsync
 ```

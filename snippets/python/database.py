@@ -15,6 +15,6 @@ conn.execute(raw_sql_string)
 conn.close()
 
 #  通过表名获取表实例
-table = Table('user', metadata, auto_load=True)
+table = Table('user', metadata, autoload=True)
 # 自动创建表
 table.create(checkfirst=True)

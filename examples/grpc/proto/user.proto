@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto;
+
+service UserService {
+    rpc GetUser(UserId) returns (User) {}
+    rpc ListUsers(UserIds) returns (stream User) {}
+}
+
+message UserId {
+    int32 Id = 1;
+}
+
+message UserIds {
+    repeated int32 Id = 1;
+}
+
+message User {
+    int32 Id = 1;
+    string Name = 2;
+    int32 Age = 3;
+}

@@ -1,4 +1,4 @@
-module git.moumentei.com/qiubai/snowfake
+module snowfake
 
 go 1.12
 
